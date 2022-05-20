@@ -12,22 +12,22 @@ import { auth } from 'firebase/app';
 })
 export class AppComponent {
   user$: Observable<User> = this.auth.user;
-  samlProfile: any = null;
+  oAuthProfile: any = null;
 
   constructor(public app: FirebaseApp, public auth: AngularFireAuth) {
     this.auth.user.subscribe(user => console.log(user.email));
   }
 
-  signInSAML() {
-    const provider = new auth.SAMLAuthProvider('saml.jumpcloud-demo');
+  signInOIDC() {
+    const provider = new auth.OAuthProvider('oidc.localhost');
 
     this.auth.auth.signInWithPopup(provider).then(userCredential => {
-      this.samlProfile = userCredential.additionalUserInfo.profile;
+      this.oAuthProfile = userCredential.additionalUserInfo.profile;
     })
   }
 
   signOut() {
     this.auth.auth.signOut();
-    this.samlProfile = null;
+    this.oAuthProfile = null;
   }
 }

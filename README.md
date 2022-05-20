@@ -1,4 +1,4 @@
-# FirebaseDemoSaml
+# FirebaseDemoOIDC
 
 Set your Firebase config `apiKey` and `authDomain` inside `app.module.ts`.
 

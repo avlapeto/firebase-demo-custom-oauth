@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="card">
-    <h1>Firebase Demo SAML</h1>
+    <h1>Firebase Demo OIDC</h1>
 
     <p class="status">
       {{ (user$ | async) ? "Signed in" : "Not signed in yet" }}
@@ -12,15 +12,15 @@
     </ul>
 
     <div class="buttons">
-      <button (click)="signInSAML()">Sign-in with JumpCloud Idp SAML</button>
+      <button (click)="signInOIDC()">Sign-in with IBA</button>
       <button (click)="signOut()">Sign-out</button>
     </div>
 
-    <ul *ngIf="samlProfile" class="variables">
-      <li>First name: <strong>{{ samlProfile.firstName }}</strong></li>
-      <li>Last name: <strong>{{ samlProfile.lastName }}</strong></li>
-      <li>Employee ID: <strong>{{ samlProfile.employeeID }}</strong></li>
-      <li>Custom attribute: <strong>{{ samlProfile['sp-attr1'] }}</strong></li>
+    <ul *ngIf="oAuthProfile" class="variables">
+      <li>First name: <strong>{{ oAuthProfile.firstName }}</strong></li>
+      <li>Last name: <strong>{{ oAuthProfile.lastName }}</strong></li>
+      <li>Employee ID: <strong>{{ oAuthProfile.employeeID }}</strong></li>
+      <li>Custom attribute: <strong>{{ oAuthProfile['sp-attr1'] }}</strong></li>
     </ul>
 
   </div>
